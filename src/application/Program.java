@@ -3,6 +3,8 @@ package application;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import javax.swing.JTable.PrintMode;
+
 import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPosition;
@@ -14,7 +16,7 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		ChessMatch chessMatch = new ChessMatch();
 		
-		while (true) {
+		while (!chessMatch.getCheckMate()) {
 			try {
 				UI.clearScreen();
 				UI.printMatch(chessMatch);
@@ -42,6 +44,10 @@ public class Program {
 				sc.nextLine();
 			}
 		}
+		
+		UI.clearScreen();
+		UI.printMatch(chessMatch);
+		
 	}
 
 }
